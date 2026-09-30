@@ -1,0 +1,175 @@
+.dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--hld-space-8);
+}
+
+.title {
+  font-size: var(--hld-font-size-3xl);
+  font-weight: var(--hld-font-weight-bold);
+  color: var(--hld-text-primary);
+  margin-bottom: var(--hld-space-1);
+}
+
+.subtitle {
+  font-size: var(--hld-font-size-base);
+  color: var(--hld-text-secondary);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--hld-space-4);
+  margin-bottom: var(--hld-space-8);
+}
+
+.statCard {
+  display: flex;
+  align-items: center;
+  gap: var(--hld-space-4);
+}
+
+.statIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--hld-radius-lg);
+  flex-shrink: 0;
+}
+
+.statContent {
+  flex: 1;
+}
+
+.statLabel {
+  font-size: var(--hld-font-size-sm);
+  color: var(--hld-text-secondary);
+  margin-bottom: var(--hld-space-1);
+}
+
+.statValue {
+  font-size: var(--hld-font-size-3xl);
+  font-weight: var(--hld-font-weight-bold);
+  color: var(--hld-text-primary);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hld-space-6);
+}
+
+.sectionTitle {
+  font-size: var(--hld-font-size-xl);
+  font-weight: var(--hld-font-weight-semibold);
+  color: var(--hld-text-primary);
+  margin: 0;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--hld-space-12) var(--hld-space-4);
+  text-align: center;
+}
+
+.emptyText {
+  font-size: var(--hld-font-size-lg);
+  font-weight: var(--hld-font-weight-medium);
+  color: var(--hld-text-primary);
+  margin-top: var(--hld-space-4);
+  margin-bottom: var(--hld-space-2);
+}
+
+.emptySubtext {
+  font-size: var(--hld-font-size-sm);
+  color: var(--hld-text-secondary);
+  margin-bottom: var(--hld-space-6);
+}
+
+.jobsList {
+  width: 100%;
+}
+
+.jobsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.jobsTable thead th {
+  text-align: left;
+  padding: var(--hld-space-3);
+  font-size: var(--hld-font-size-sm);
+  font-weight: var(--hld-font-weight-semibold);
+  color: var(--hld-text-secondary);
+  border-bottom: 2px solid var(--hld-border);
+}
+
+.jobsTable tbody td {
+  padding: var(--hld-space-3);
+  border-bottom: 1px solid var(--hld-border);
+  font-size: var(--hld-font-size-sm);
+}
+
+.jobsTable tbody tr:hover {
+  background-color: var(--hld-background-secondary);
+}
+
+.badge {
+  display: inline-block;
+  padding: var(--hld-space-1) var(--hld-space-3);
+  border-radius: var(--hld-radius-full);
+  font-size: var(--hld-font-size-xs);
+  font-weight: var(--hld-font-weight-medium);
+}
+
+.badgeQueued {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--hld-color-info);
+}
+
+.badgeProcessing {
+  background-color: rgba(234, 179, 8, 0.1);
+  color: var(--hld-color-warning);
+}
+
+.badgeCompleted {
+  background-color: rgba(22, 163, 74, 0.1);
+  color: var(--hld-color-success);
+}
+
+.badgeFailed {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--hld-color-danger);
+}
+
+.viewAll {
+  margin-top: var(--hld-space-4);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--hld-space-4);
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: var(--hld-font-size-2xl);
+  }
+}

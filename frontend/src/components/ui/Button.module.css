@@ -1,0 +1,110 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--hld-space-2);
+  font-family: var(--hld-font-family);
+  font-weight: var(--hld-font-weight-medium);
+  border: 1px solid transparent;
+  border-radius: var(--hld-radius-md);
+  cursor: pointer;
+  transition: all var(--hld-transition-fast);
+  white-space: nowrap;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.sm {
+  padding: var(--hld-space-2) var(--hld-space-3);
+  font-size: var(--hld-font-size-sm);
+  height: 32px;
+}
+
+.md {
+  padding: var(--hld-space-3) var(--hld-space-4);
+  font-size: var(--hld-font-size-base);
+  height: 40px;
+}
+
+.lg {
+  padding: var(--hld-space-4) var(--hld-space-6);
+  font-size: var(--hld-font-size-lg);
+  height: 48px;
+}
+
+/* Variants */
+.primary {
+  background-color: var(--hld-color-primary);
+  color: var(--hld-text-inverse);
+}
+
+.primary:hover:not(:disabled) {
+  background-color: var(--hld-color-primary-hover);
+}
+
+.primary:active:not(:disabled) {
+  background-color: var(--hld-color-primary-dark);
+}
+
+.secondary {
+  background-color: var(--hld-color-secondary);
+  color: var(--hld-text-inverse);
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: var(--hld-color-secondary-dark);
+}
+
+.outline {
+  background-color: transparent;
+  color: var(--hld-color-primary);
+  border-color: var(--hld-color-primary);
+}
+
+.outline:hover:not(:disabled) {
+  background-color: var(--hld-color-primary);
+  color: var(--hld-text-inverse);
+}
+
+.ghost {
+  background-color: transparent;
+  color: var(--hld-text-primary);
+}
+
+.ghost:hover:not(:disabled) {
+  background-color: var(--hld-bg-hover);
+}
+
+.danger {
+  background-color: var(--hld-color-danger);
+  color: var(--hld-text-inverse);
+}
+
+.danger:hover:not(:disabled) {
+  background-color: var(--hld-color-danger-dark);
+}
+
+/* Loading spinner */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+}

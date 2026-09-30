@@ -1,0 +1,73 @@
+.progressWrapper {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--hld-space-2);
+}
+
+.label {
+  font-size: var(--hld-font-size-sm);
+  font-weight: var(--hld-font-weight-medium);
+  color: var(--hld-text-primary);
+}
+
+.percentage {
+  font-size: var(--hld-font-size-sm);
+  font-weight: var(--hld-font-weight-semibold);
+  color: var(--hld-text-secondary);
+}
+
+.progressBar {
+  width: 100%;
+  background-color: var(--hld-color-neutral-200);
+  border-radius: var(--hld-radius-full);
+  overflow: hidden;
+}
+
+.sm {
+  height: 6px;
+}
+
+.md {
+  height: 10px;
+}
+
+.lg {
+  height: 20px;
+}
+
+.progressFill {
+  height: 100%;
+  transition: width 0.3s ease-in-out;
+  border-radius: var(--hld-radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: var(--hld-space-2);
+}
+
+.primary {
+  background-color: var(--hld-color-primary);
+}
+
+.success {
+  background-color: var(--hld-color-success);
+}
+
+.warning {
+  background-color: var(--hld-color-warning);
+}
+
+.danger {
+  background-color: var(--hld-color-danger);
+}
+
+.innerText {
+  color: white;
+  font-size: var(--hld-font-size-xs);
+  font-weight: var(--hld-font-weight-semibold);
+}
