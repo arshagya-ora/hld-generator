@@ -1,0 +1,74 @@
+# ============================================
+# ArchDraft - Pipeline Dependencies
+# ============================================
+# Dependencies used by the document generation pipeline.
+# Install alongside backend/requirements.txt for the web application.
+#
+# Installation: pip install -r requirements-production.txt
+# ============================================
+
+# ============================================
+# Core Framework & Orchestration
+# ============================================
+langgraph
+langchain
+langchain-core
+langchain-community
+slowapi
+
+# ============================================
+# Data Validation & Modeling
+# ============================================
+pydantic
+
+# ============================================
+# OCI Cloud Services
+# ============================================
+oci
+oci-openai
+
+# ============================================
+# Document Processing & Parsing
+# ============================================
+docling
+python-docx
+
+# ============================================
+# Knowledge Graph & RAG
+# ============================================
+cognee
+raganything
+
+# ============================================
+# Configuration Management
+# ============================================
+python-dotenv
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
+python-jose
+
+# ============================================
+# Numeric Operations & ML
+# ============================================
+numpy
+
+# ============================================
+# CLI & UI Utilities
+# ============================================
+tqdm
+tabulate
+rich # Better CLI formatting
+
+# ============================================
+# Async Support
+# ============================================
+aiofiles
+httpx
+
+# ============================================
+# Standard Library (No installation needed)
+# ============================================
+# asyncio - Async/await support
+# pathlib - Path handling
+# argparse - CLI argument parsing
+# json, os, sys, logging, time, datetime - Built-in utilities

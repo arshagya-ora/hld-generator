@@ -1,0 +1,386 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "ArchDraft | Runtime Architecture",
+    "subtitle": "One document-to-design path, with supporting systems kept in context",
+    "visual_preset": "editorial",
+    "animation": "trace",
+    "quality_profile": "showcase",
+    "viewBox": [
+      1390,
+      590
+    ],
+    "repository": {
+      "url": "https://github.com/arshagya-ora/Arch-Draft",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "6e26662a49109fec607ef1553d076a039ae14415"
+    },
+    "views": [
+      {
+        "id": "primary-path",
+        "label": "Primary path",
+        "focus": [
+          "browser",
+          "api",
+          "queue",
+          "worker",
+          "pipeline",
+          "outputs"
+        ],
+        "note": "A signed-in user submits documents, starts a job, and downloads the generated HLD."
+      },
+      {
+        "id": "data-and-model",
+        "label": "Dependencies",
+        "focus": [
+          "api",
+          "worker",
+          "pipeline",
+          "database",
+          "uploads",
+          "knowledge",
+          "model",
+          "outputs"
+        ],
+        "note": "Application state, encrypted uploads, a private product profile, retrieval data, and the model endpoint support generation."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "browser",
+      "type": "frontend",
+      "label": "Web app",
+      "sublabel": "React + Vite",
+      "pos": [
+        55,
+        267
+      ],
+      "size": [
+        145,
+        76
+      ],
+      "sources": [
+        {
+          "path": "frontend/src/pages/CreateJobPage.tsx"
+        }
+      ]
+    },
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "API",
+      "sublabel": "FastAPI + auth",
+      "pos": [
+        267,
+        267
+      ],
+      "size": [
+        145,
+        76
+      ],
+      "sources": [
+        {
+          "path": "backend/main.py"
+        },
+        {
+          "path": "backend/api/routes/jobs.py"
+        }
+      ]
+    },
+    {
+      "id": "queue",
+      "type": "messagebus",
+      "label": "Job queue",
+      "sublabel": "Redis broker",
+      "pos": [
+        479,
+        267
+      ],
+      "size": [
+        145,
+        76
+      ],
+      "sources": [
+        {
+          "path": "backend/celery_app.py"
+        }
+      ]
+    },
+    {
+      "id": "worker",
+      "type": "backend",
+      "label": "Worker",
+      "sublabel": "Celery task",
+      "pos": [
+        691,
+        267
+      ],
+      "size": [
+        145,
+        76
+      ],
+      "sources": [
+        {
+          "path": "backend/tasks/hld_generation.py"
+        }
+      ]
+    },
+    {
+      "id": "pipeline",
+      "type": "backend",
+      "label": "HLD pipeline",
+      "sublabel": "Analyze → assemble",
+      "pos": [
+        903,
+        267
+      ],
+      "size": [
+        158,
+        76
+      ],
+      "sources": [
+        {
+          "path": "orchestrator/master_orchestrator.py"
+        },
+        {
+          "path": "backend/services/orchestrator_wrapper.py"
+        }
+      ]
+    },
+    {
+      "id": "outputs",
+      "type": "database",
+      "label": "Generated files",
+      "sublabel": "Download via API",
+      "pos": [
+        1130,
+        267
+      ],
+      "size": [
+        160,
+        76
+      ],
+      "sources": [
+        {
+          "path": "backend/api/routes/jobs.py"
+        }
+      ]
+    },
+    {
+      "id": "database",
+      "type": "database",
+      "label": "Application DB",
+      "sublabel": "Users, jobs, metadata",
+      "pos": [
+        267,
+        475
+      ],
+      "size": [
+        145,
+        70
+      ],
+      "sources": [
+        {
+          "path": "backend/database.py"
+        }
+      ]
+    },
+    {
+      "id": "uploads",
+      "type": "database",
+      "label": "Upload store",
+      "sublabel": "Encrypted documents",
+      "pos": [
+        691,
+        475
+      ],
+      "size": [
+        145,
+        70
+      ],
+      "sources": [
+        {
+          "path": "backend/api/routes/documents.py"
+        },
+        {
+          "path": "backend/services/encryption.py"
+        }
+      ]
+    },
+    {
+      "id": "knowledge",
+      "type": "database",
+      "label": "Product context",
+      "sublabel": "Profile JSON + RAG",
+      "pos": [
+        903,
+        475
+      ],
+      "size": [
+        158,
+        70
+      ],
+      "sources": [
+        {
+          "path": "agents/blueprint/tools/product_profile_loader.py"
+        },
+        {
+          "path": "shared/product_registry.py"
+        }
+      ]
+    },
+    {
+      "id": "model",
+      "type": "external",
+      "label": "Model endpoint",
+      "sublabel": "External AI service",
+      "pos": [
+        903,
+        75
+      ],
+      "size": [
+        158,
+        72
+      ],
+      "sources": [
+        {
+          "path": "backend/services/oci_client.py"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "security-group",
+      "label": "Application trust boundary",
+      "wraps": [
+        "api",
+        "queue",
+        "worker",
+        "pipeline",
+        "outputs",
+        "database",
+        "uploads",
+        "knowledge"
+      ],
+      "pad": 30
+    },
+    {
+      "kind": "region",
+      "label": "External model provider",
+      "wraps": [
+        "model"
+      ],
+      "pad": 19
+    }
+  ],
+  "connections": [
+    {
+      "from": "browser",
+      "to": "api",
+      "label": "HTTPS + token",
+      "variant": "security",
+      "route": "straight",
+      "labelAt": [
+        234,
+        372
+      ]
+    },
+    {
+      "from": "api",
+      "to": "queue",
+      "label": "enqueue",
+      "variant": "emphasis",
+      "route": "straight"
+    },
+    {
+      "from": "queue",
+      "to": "worker",
+      "label": "consume",
+      "variant": "emphasis",
+      "route": "straight"
+    },
+    {
+      "from": "worker",
+      "to": "pipeline",
+      "label": "run",
+      "variant": "emphasis",
+      "route": "straight"
+    },
+    {
+      "from": "pipeline",
+      "to": "outputs",
+      "label": "write HLD",
+      "variant": "emphasis",
+      "route": "straight"
+    },
+    {
+      "from": "api",
+      "to": "database",
+      "label": "state",
+      "route": "straight",
+      "labelAt": [
+        340,
+        372
+      ]
+    },
+    {
+      "from": "worker",
+      "to": "uploads",
+      "label": "read",
+      "route": "straight",
+      "labelAt": [
+        764,
+        372
+      ]
+    },
+    {
+      "from": "pipeline",
+      "to": "knowledge",
+      "label": "read",
+      "route": "straight",
+      "labelAt": [
+        982,
+        372
+      ]
+    },
+    {
+      "from": "pipeline",
+      "to": "model",
+      "label": "generate",
+      "variant": "security",
+      "route": "straight"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Primary request",
+      "items": [
+        "Browser uploads source documents and creates a job through the authenticated API",
+        "The API enqueues work; the worker runs the HLD pipeline",
+        "The finished document is stored and served by the API"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Inside the pipeline",
+      "items": [
+        "Document analysis → profile-guided blueprint → retrieval → content generation → assembly",
+        "Private profile JSON guides structure; retrieval indexes provide optional reference material"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Trust boundaries",
+      "items": [
+        "User traffic crosses into the application at the API",
+        "The pipeline crosses to an external model endpoint",
+        "Uploaded documents are encrypted in local storage; database and Redis hold runtime state"
+      ]
+    }
+  ]
+}

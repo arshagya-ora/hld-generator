@@ -1,0 +1,127 @@
+.fileUpload {
+  width: 100%;
+}
+
+.dropZone {
+  border: 2px dashed var(--hld-border-default);
+  border-radius: var(--hld-radius-lg);
+  padding: var(--hld-space-10);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--hld-transition-base);
+  background-color: var(--hld-bg-secondary);
+}
+
+.dropZone:hover {
+  border-color: var(--hld-color-primary);
+  background-color: rgba(199, 70, 52, 0.05);
+}
+
+.dropZone.dragging {
+  border-color: var(--hld-color-primary);
+  background-color: rgba(199, 70, 52, 0.1);
+  transform: scale(1.02);
+}
+
+.uploadIcon {
+  color: var(--hld-text-tertiary);
+  margin-bottom: var(--hld-space-4);
+}
+
+.dropText {
+  font-size: var(--hld-font-size-base);
+  color: var(--hld-text-primary);
+  margin-bottom: var(--hld-space-2);
+}
+
+.browseText {
+  color: var(--hld-color-primary);
+  font-weight: var(--hld-font-weight-medium);
+}
+
+.acceptText {
+  font-size: var(--hld-font-size-sm);
+  color: var(--hld-text-secondary);
+}
+
+.fileInput {
+  display: none;
+}
+
+.filesList {
+  margin-top: var(--hld-space-6);
+}
+
+.filesHeader {
+  font-size: var(--hld-font-size-base);
+  font-weight: var(--hld-font-weight-semibold);
+  color: var(--hld-text-primary);
+  margin-bottom: var(--hld-space-4);
+}
+
+.fileItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hld-space-3);
+  padding: var(--hld-space-4);
+  background-color: var(--hld-bg-primary);
+  border: 1px solid var(--hld-border-light);
+  border-radius: var(--hld-radius-md);
+  margin-bottom: var(--hld-space-3);
+}
+
+.fileInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--hld-space-3);
+}
+
+.fileIcon {
+  color: var(--hld-text-secondary);
+  flex-shrink: 0;
+}
+
+.fileDetails {
+  flex: 1;
+  min-width: 0;
+}
+
+.fileName {
+  font-size: var(--hld-font-size-sm);
+  font-weight: var(--hld-font-weight-medium);
+  color: var(--hld-text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fileSize {
+  font-size: var(--hld-font-size-xs);
+  color: var(--hld-text-secondary);
+  margin-top: var(--hld-space-1);
+}
+
+.fileControls {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  gap: var(--hld-space-3);
+  align-items: start;
+}
+
+.typeSelect {
+  min-width: 200px;
+}
+
+.labelInput {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .fileControls {
+    grid-template-columns: 1fr;
+  }
+
+  .typeSelect {
+    min-width: 100%;
+  }
+}

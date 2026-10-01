@@ -1,0 +1,79 @@
+.card {
+  background-color: var(--hld-bg-primary);
+  border: 1px solid var(--hld-border-light);
+  border-radius: var(--hld-radius-lg);
+  transition: all var(--hld-transition-base);
+}
+
+/* Padding variants */
+.padding-none {
+  padding: 0;
+}
+
+.padding-sm {
+  padding: var(--hld-space-4);
+}
+
+.padding-md {
+  padding: var(--hld-space-6);
+}
+
+.padding-lg {
+  padding: var(--hld-space-8);
+}
+
+/* Shadow variants */
+.shadow-none {
+  box-shadow: none;
+}
+
+.shadow-sm {
+  box-shadow: var(--hld-shadow-sm);
+}
+
+.shadow-md {
+  box-shadow: var(--hld-shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--hld-shadow-lg);
+}
+
+/* Hover effect */
+.hover:hover {
+  box-shadow: var(--hld-shadow-lg);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+/* Card sections */
+.cardHeader {
+  padding-bottom: var(--hld-space-4);
+  border-bottom: 1px solid var(--hld-border-light);
+  margin-bottom: var(--hld-space-4);
+}
+
+.cardHeader:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.cardBody {
+  flex: 1;
+}
+
+.cardFooter {
+  padding-top: var(--hld-space-4);
+  border-top: 1px solid var(--hld-border-light);
+  margin-top: var(--hld-space-4);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--hld-space-3);
+}
+
+.cardFooter:first-child {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}

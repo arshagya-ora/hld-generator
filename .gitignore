@@ -1,0 +1,126 @@
+# ------------------------------
+# Secrets and local env
+# ------------------------------
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Keys and credentials
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# ------------------------------
+# Python
+# ------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+.venv/
+**/venv/
+**/.venv/
+
+# ------------------------------
+# Frontend / Node
+# ------------------------------
+node_modules/
+frontend/node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# ------------------------------
+# Build, runtime, and temp
+# ------------------------------
+*.log
+*.log.*
+*.pid
+*.pid.lock
+*.out
+*.err
+*.tmp
+
+# Databases / local state
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+*.rdb
+
+# Caches
+.cache/
+
+# ------------------------------
+# Generated data/artifacts
+# ------------------------------
+rag_storage/
+**/rag_storage/
+rag-storage/
+**/rag-storage/
+
+logs/
+run/
+outputs/
+
+backend/logs/
+backend/outputs/
+backend/storage/
+backend/rag_storage/
+backend/images/source-docs/
+
+images/source-docs/
+orchestrator/logs/
+orchestrator/outputs/
+orchestrator/images/
+debuggers/logs/
+
+tools/ingestion/logs/
+tools/ingestion/outputs/
+
+# ------------------------------
+# OS / Editor
+# ------------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ------------------------------
+# Archives
+# ------------------------------
+*.zip
+*.tar
+*.tgz
+*.gz
+*.7z
+*.rar
+
+# Local copies, reports, and vendor binaries
+*.bak
+*.pdb
+*.exe
+*.dll
+*.docx
+*.pdf
+frontend/audit_full.txt
+frontend/build_log*.txt
+frontend/tsc_output*.txt
+redis-server/
+.codex
+.public-upload/
+product_profiles/
+* copy.py
+* copy

@@ -1,0 +1,24 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--hld-bg-secondary);
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.main {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--hld-space-6);
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: var(--hld-space-4);
+  }
+}

@@ -1,0 +1,56 @@
+# FastAPI and ASGI server
+fastapi
+uvicorn[standard] 
+python-multipart
+
+# Database
+sqlalchemy
+alembic
+asyncpg
+aiosqlite
+
+# Redis
+redis
+
+# Celery
+celery[redis]
+flower
+
+# Authentication
+python-jose[cryptography]
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
+python-dotenv
+
+# Rate Limiting
+slowapi
+
+# Validation
+pydantic
+pydantic-settings
+email-validator
+
+# File encryption
+cryptography
+
+# Utilities
+aiofiles
+python-dateutil
+
+# Existing ArchDraft dependencies (reuse)
+langgraph
+langchain
+langchain-core
+langchain-community
+oci
+oci-openai
+numpy
+tqdm
+tabulate
+llama-index
+llama-index-core
+
+# Development
+pytest
+pytest-asyncio
+httpx

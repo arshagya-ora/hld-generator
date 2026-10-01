@@ -1,0 +1,138 @@
+.createJobPage {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: var(--hld-space-8);
+}
+
+.title {
+  font-size: var(--hld-font-size-3xl);
+  font-weight: var(--hld-font-weight-bold);
+  color: var(--hld-text-primary);
+  margin-bottom: var(--hld-space-2);
+}
+
+.subtitle {
+  font-size: var(--hld-font-size-base);
+  color: var(--hld-text-secondary);
+}
+
+.card {
+  margin-bottom: var(--hld-space-6);
+}
+
+.sectionTitle {
+  font-size: var(--hld-font-size-xl);
+  font-weight: var(--hld-font-weight-semibold);
+  color: var(--hld-text-primary);
+  margin: 0;
+}
+
+.alert {
+  margin-bottom: var(--hld-space-4);
+}
+
+.productInfo {
+  margin-top: var(--hld-space-4);
+  padding: var(--hld-space-4);
+  background-color: var(--hld-bg-secondary);
+  border-radius: var(--hld-radius-md);
+}
+
+.productDescription {
+  font-size: var(--hld-font-size-sm);
+  color: var(--hld-text-secondary);
+}
+
+.documentTypes {
+  margin-top: var(--hld-space-6);
+  padding: var(--hld-space-4);
+  background-color: var(--hld-bg-secondary);
+  border-radius: var(--hld-radius-md);
+}
+
+.documentTypes h4 {
+  font-size: var(--hld-font-size-sm);
+  font-weight: var(--hld-font-weight-semibold);
+  color: var(--hld-text-primary);
+  margin-bottom: var(--hld-space-2);
+}
+
+.documentTypes ul {
+  list-style: none;
+  font-size: var(--hld-font-size-sm);
+  color: var(--hld-text-secondary);
+}
+
+.documentTypes li {
+  margin-bottom: var(--hld-space-1);
+}
+
+.promptSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hld-space-2);
+}
+
+.promptLabel {
+  font-size: var(--hld-font-size-sm);
+  font-weight: var(--hld-font-weight-semibold);
+  color: var(--hld-text-primary);
+}
+
+.promptTextarea {
+  width: 100%;
+  padding: var(--hld-space-3);
+  border: 1px solid var(--hld-border-primary);
+  border-radius: var(--hld-radius-md);
+  font-size: var(--hld-font-size-sm);
+  font-family: inherit;
+  color: var(--hld-text-primary);
+  background-color: var(--hld-bg-primary);
+  resize: vertical;
+  min-height: 80px;
+}
+
+.promptTextarea:focus {
+  outline: none;
+  border-color: var(--hld-accent);
+  box-shadow: 0 0 0 2px rgba(var(--hld-accent-rgb, 0, 120, 212), 0.2);
+}
+
+.promptHelper {
+  font-size: var(--hld-font-size-xs);
+  color: var(--hld-text-tertiary);
+  margin: 0;
+}
+
+.configInfo {
+  font-size: var(--hld-font-size-sm);
+  color: var(--hld-text-secondary);
+}
+
+.configInfo p {
+  margin-bottom: var(--hld-space-2);
+}
+
+.submitCard {
+  position: sticky;
+  bottom: var(--hld-space-6);
+  background-color: var(--hld-bg-primary);
+  box-shadow: var(--hld-shadow-lg);
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: var(--hld-space-4);
+}
+
+.loading p {
+  font-size: var(--hld-font-size-base);
+  color: var(--hld-text-secondary);
+}
